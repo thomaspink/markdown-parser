@@ -3,10 +3,9 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "module": "es2015",
-    "target": "es5",
+    "target": "es6",
     "noImplicitAny": false,
-    "outDir": "dist",
-    "rootDir": "src",
+    "outDir": "../../dist/lib",
     "sourceMap": true,
     "inlineSources": true,
     "declaration": true,
@@ -14,6 +13,6 @@
     "moduleResolution": "node"
   },
   "files": [
-    "src/index.ts"
+    "./index.ts"
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "mapRoot": "/",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "outDir": "../../dist/",
+    "sourceMap": true,
+    "target": "es6",
+    "stripInternal": false,
+    "baseUrl": "",
+    "paths": {
+      "markdown-parser": [
+        "../../dist/lib",
+        "../lib"
+      ]
+    }
+  }
+}
