@@ -1,0 +1,28 @@
+{
+  "name": "markdown-parser",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "npm run clean && ./node_modules/typescript/bin/tsc -p tsconfig.json",
+    "test": "test",
+    "clean": "rm -rf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomaspink/markdown-parser.git"
+  },
+  "keywords": [
+    "markdown",
+    "parser"
+  ],
+  "author": "Thomas Pink",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thomaspink/markdown-parser/issues"
+  },
+  "homepage": "https://github.com/thomaspink/markdown-parser#readme",
+  "devDependencies": {
+    "typescript": "^2.1.4"
+  }
+}
