@@ -4,16 +4,17 @@
   "description": "",
   "main": "src/lib/index.ts",
   "scripts": {
-    "build": "npm run clean && ./node_modules/typescript/bin/tsc -p ./src/lib/tsconfig.json",
-    "demo": "npm run build && parallelshell \"npm run demo:watch\" \"npm run demo:serve\"",
+    "build": "npm run clean && npm run lint && npm run lib:build",
+    "watch": "npm run lib:watch",
+    "lint": "./node_modules/tslint/bin/tslint -c tslint.json ./src/**/*.ts",
+    "clean": "rm -rf dist",
+    "lib:build": "./node_modules/typescript/bin/tsc -p ./src/lib/tsconfig.json && rollup -c rollup-config.js",
+    "lib:watch": "watch 'npm run lib:build' ./src/lib",
+    "demo": "npm run clean && npm run lib:build && npm run demo:build && parallelshell 'npm run lib:watch' 'npm run demo:watch' 'npm run demo:serve' 'npm run livereload'",
     "demo:serve": "./node_modules/.bin/http-server ./dist -a localhost -p 4200 -c-1",
     "demo:assets": "cp ./src/demo-app/index.html ./dist/index.html && cp -r ./src/demo-app/assets ./dist",
-    "demo:build": "./node_modules/typescript/bin/tsc -p ./src/demo-app/tsconfig.json",
-    "demo:watch": "watch 'npm run demo:build && npm run demo:assets' ./src/demo-app",
-    "asdfsa": "parallelshell \"npm run demo:watch\" \"npm run demo:serve\"",
-    "test": "test",
-    "lint": "./node_modules/tslint/bin/tslint -c tslint.json ./src/**/*.ts",
-    "clean": "rm -rf dist"
+    "demo:build": "./node_modules/typescript/bin/tsc -p ./src/demo-app/tsconfig.json && rollup -c ./src/demo-app/rollup-config.js",
+    "demo:watch": "watch 'npm run demo:build && npm run demo:assets' ./src/demo-app"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,8 @@
   "devDependencies": {
     "http-server": "^0.9.0",
     "parallelshell": "^2.0.0",
+    "rollup": "^0.41.1",
+    "rollup-plugin-node-resolve": "^2.0.0",
     "tslint": "^4.2.0",
     "typescript": "^2.1.4",
     "watch": "^1.0.1"
