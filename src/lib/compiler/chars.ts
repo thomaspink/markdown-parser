@@ -1,0 +1,9 @@
+export const $EOF = 0;
+export const $TAB = 9;
+export const $LF = 10;
+export const $VTAB = 11;
+export const $FF = 12;
+export const $CR = 13;
+export const $SPACE = 32;
+export const $STAR = 42;
+export const $_ = 95;

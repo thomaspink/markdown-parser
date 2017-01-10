@@ -1,10 +1,12 @@
-import { BreakLineAst } from 'markdown-parser';
+import { MarkdownParser } from 'markdown-parser';
 
 const textEl = document.querySelector('textarea');
 const resultEl = document.querySelector('.result');
+const parser = new MarkdownParser();
 
 function updateResult() {
   resultEl.innerHTML = textEl.value;
+  console.log(parser.parse(textEl.value, 'textarea'));
 }
 
 let timer = 0;
